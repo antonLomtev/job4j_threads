@@ -1,5 +1,5 @@
 package org.example.logg;
 
 public interface Appender {
-    void saveLog();
+    void saveLog(String text);
 }
