@@ -1,5 +1,7 @@
 package org.example.logg;
 
+import java.util.List;
+
 public interface ReadProperties {
-    Appender read(String path);
+    List<Appender> read(String path);
 }

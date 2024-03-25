@@ -1,21 +1,28 @@
 package org.example.logg;
 
+import java.util.List;
+
 public class Log implements Logger {
 
-    private static Appender appender;
-    private static final String PATH_TO_FILE = "console";
+    private static List<Appender> appenders;
+    private static final String PATH_TO_FILE = "console,file";
     public static Log getInstance() {
         ReadProperties readProperties = new ReadPropertiesLocale();
-        appender = readProperties.read(PATH_TO_FILE);
+        appenders = readProperties.read(PATH_TO_FILE);
         return new Log();
     }
     @Override
     public void error(String text) {
-        appender.saveLog(text);
+        save(text);
     }
 
     @Override
     public void warning(String text) {
-        appender.saveLog(text);
+        save(text);
+    }
+    private void save(String text) {
+        for (Appender a : appenders) {
+            a.saveLog(text);
+        }
     }
 }
