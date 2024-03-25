@@ -2,8 +2,7 @@ package org.example.logg;
 
 public class App {
     public static void main(String[] args) {
-        Appender appender = new Console();
-        Logger log = Log.getInstance(appender);
+        Logger log = Log.getInstance();
         log.error("error");
         log.warning("warning");
     }

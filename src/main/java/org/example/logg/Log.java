@@ -2,10 +2,11 @@ package org.example.logg;
 
 public class Log implements Logger {
 
-    Appender appender;
-
-    public static Log getInstance(Appender appender) {
-
+    private static Appender appender;
+    private static final String PATH_TO_FILE = "console";
+    public static Log getInstance() {
+        ReadProperties readProperties = new ReadPropertiesLocale();
+        appender = readProperties.read(PATH_TO_FILE);
         return new Log();
     }
     @Override

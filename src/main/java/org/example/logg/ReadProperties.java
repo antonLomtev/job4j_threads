@@ -1,5 +1,5 @@
 package org.example.logg;
 
 public interface ReadProperties {
-    void read();
+    Appender read(String path);
 }
