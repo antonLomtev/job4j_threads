@@ -1,8 +1,10 @@
 package org.example.logg;
 
 
+import org.example.logg.level_log.LevelLog;
+
 import java.util.List;
 
 public interface Appender {
-    void saveLog(String text, List<LevelLog> levelLogs);
+    void append(String text, LevelLog lvlLog);
 }
