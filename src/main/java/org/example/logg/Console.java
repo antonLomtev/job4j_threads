@@ -7,7 +7,7 @@ import java.util.List;
 public class Console implements Appender {
 
     @Override
-    public void append(String text, LevelLog lvlLog) {
-            System.out.printf("[%s] %s\n", lvlLog.getLevelLog(), text);
+    public void append(String text, LogLvl lvlLog) {
+            System.out.printf("[%s] %s\n", lvlLog.toString(), text);
     }
 }

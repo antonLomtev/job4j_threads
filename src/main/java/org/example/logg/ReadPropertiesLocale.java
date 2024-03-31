@@ -27,19 +27,19 @@ public class ReadPropertiesLocale implements  ReadProperties {
     }
 
     @Override
-    public List<LevelLog> readLevelLog(String path) {
-        List<LevelLog> logs = new ArrayList<>();
+    public List<LogLvl> readLevelLog(String path) {
+        List<LogLvl> logs = new ArrayList<>();
         for (String s : rProp(path, "level")) {
             if ("error".equals(s)) {
-                logs.add(new Error("error"));
+                logs.add(LogLvl.ERROR);
             } else if ("warning".equals(s)) {
-                logs.add(new Warning("warning"));
+                logs.add(LogLvl.WARNING);
             } else if ("debug".equals(s)) {
-                logs.add(new Debug("debug"));
+                logs.add(LogLvl.DEBUG);
             } else if ("info".equals(s)) {
-                logs.add(new Info("info"));
+                logs.add(LogLvl.INFO);
             } else if ("trace".equals(s)) {
-                logs.add(new Trace("trace"));
+                logs.add(LogLvl.TRACE);
             }
         }
         return logs;

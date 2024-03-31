@@ -16,9 +16,9 @@ public class File implements Appender {
     }
 
     @Override
-    public void append(String text, LevelLog lvlLog) {
+    public void append(String text, LogLvl lvlLog) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(path, true))) {
-            writer.write(String.format("[%s] %s\n", lvlLog.getLevelLog(), text));
+            writer.write(String.format("[%s] %s\n", lvlLog.toString(), text));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
