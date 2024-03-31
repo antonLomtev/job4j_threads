@@ -1,7 +1,5 @@
 package org.example.logg;
 
-import org.example.logg.level_log.*;
-import org.example.logg.level_log.Error;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,7 +10,7 @@ import java.util.List;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
-public class ReadPropertiesLocale implements  ReadProperties {
+public class ReadPropertiesLocale implements ReadProperties {
     @Override
     public List<Appender> readAppenders(String path) {
         List<Appender> appenders = new ArrayList<>();
