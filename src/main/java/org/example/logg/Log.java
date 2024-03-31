@@ -1,9 +1,7 @@
 package org.example.logg;
 
+import org.example.logg.level_log.*;
 import org.example.logg.level_log.Error;
-import org.example.logg.level_log.Info;
-import org.example.logg.level_log.LevelLog;
-import org.example.logg.level_log.Warning;
 
 import java.util.List;
 
@@ -41,19 +39,16 @@ public class Log implements Logger {
 
     @Override
     public void trace(String message) {
-
+        log(message, new Trace("trace"));
     }
 
     @Override
     public void debug(String message) {
-
+        log(message, new Debug("debug"));
     }
 
     @Override
     public void info(String message) {
         log(message, new Info("info"));
-    }
-
-    private void save(String text) {
     }
 }
