@@ -1,14 +1,12 @@
 package org.example.logg;
 
-import org.example.logg.level_log.LevelLog;
-
-import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 
 public class File implements Appender {
+
     private String path;
 
     public File(String path) {

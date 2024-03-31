@@ -1,7 +1,5 @@
 package org.example.logg;
 
-import org.example.logg.level_log.*;
-import org.example.logg.level_log.Error;
 
 import java.util.List;
 
@@ -10,6 +8,7 @@ public class Log implements Logger {
     private static List<Appender> appenders;
     private static List<LogLvl> levelLogs;
     private static final String PATH_TO_FILE = "src/main/resources/log.properties";
+
     public static Log getInstance() {
         ReadProperties readProperties = new ReadPropertiesLocale();
         appenders = readProperties.readAppenders(PATH_TO_FILE);
@@ -45,11 +44,11 @@ public class Log implements Logger {
 
     @Override
     public void debug(String message) {
-        log(message,LogLvl.DEBUG);
+        log(message, LogLvl.DEBUG);
     }
 
     @Override
     public void info(String message) {
-        log(message,LogLvl.INFO);
+        log(message, LogLvl.INFO);
     }
 }
