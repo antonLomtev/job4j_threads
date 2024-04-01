@@ -7,5 +7,5 @@ public interface ReadProperties<T> {
 
     List<T> readAppenders(String path);
 
-    List<T> readLevelLog(String path);
+    int readMinLevelLog(String path);
 }
