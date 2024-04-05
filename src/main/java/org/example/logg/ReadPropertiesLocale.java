@@ -27,7 +27,7 @@ public class ReadPropertiesLocale implements ReadProperties {
     @Override
     public int readMinLevelLog(String path) {
         int minLvl = 0;
-        if(!rProp(path, "level").get(0).isEmpty()) {
+        if(!rProp(path, "level").isEmpty()) {
             String s = rProp(path, "level").get(0).toString().toUpperCase();
             LogLvl logLvl = LogLvl.valueOf(s);
             minLvl = logLvl.getLvl();
@@ -42,7 +42,11 @@ public class ReadPropertiesLocale implements ReadProperties {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-        String[] propertySave = properties.getProperty(name).split(",");
-        return Arrays.stream(propertySave).collect(Collectors.toList());
+        List<String> result = new ArrayList<>();
+        if (properties.containsKey(name)) {
+            String[] propertySave = properties.getProperty(name).split(",");
+            result = Arrays.stream(propertySave).collect(Collectors.toList());
+        }
+        return result;
     }
 }
